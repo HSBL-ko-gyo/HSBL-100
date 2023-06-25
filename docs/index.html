@@ -93,7 +93,7 @@
 
     <div class="jumbotron text-center">
         <h1>USB Type-C ccHacker</h1>
-        <p>抵抗確認＆代替抵抗で充電失敗をハックする。</p>
+        <p>確認・代替の2つの機能で充電失敗をハックする。</p>
         <img src="https://github.com/HSBL-ko-gyo/HSBL-100/assets/128065816/831346b4-6d9c-476b-adf4-37fdc7e33947"
             alt="HSBL-100">
         <img src="https://github.com/HSBL-ko-gyo/HSBL-100/assets/128065816/5d0935be-9954-4531-92d9-2bac03baa376"
@@ -103,15 +103,17 @@
     <div class="container">
         <div id="overview" class="my-4">
             <h2>製品概要</h2>
-            <p> 本製品USB Type-C ccHackerは給電が止まることの多いType-Cデバイスの問題を解決する2つの機能を持っています。<br>
+            <p> 本製品ccHackerは給電が止まることの多いType-Cデバイスの問題を解決する2つの機能を持っています。<br>
                 朝起きてデバイスが充電がされていなかった事に気づいた！という悲劇を終わらせます。
             </p>
         </div>
 
         <div id="resistancCheck" class="my-4">
             <h3>Hack1.抵抗確認</h3>
-            <p>Type-Cデバイスで充電ができない主な原因は部品が足りていないことです。<br>
-                Type-Cは実装されるべきCC(Configuration Channel)プルダウン抵抗がついていない製品が多く<br>上位機器が給電を開始しない問題が多く発生しています。<br><br>
+            <p>Type-CデバイスのCCプルダウン抵抗が存在するかをチェック<br>
+                Type-Cデバイスで充電ができない主な原因は部品が足りていないことです。<br>
+                Type-Cは実装されるべきCC(Configuration Channel)プルダウン抵抗がついていない製品が多く<br>
+                上位機器が給電を開始しない問題が多く発生しています。<br><br>
                 本製品はType-CデバイスのCCプルダウン抵抗が存在するかチェックすることができます。</p>
         </div>
 
@@ -119,7 +121,7 @@
             <h3>Hack2.代替抵抗</h3>
             <p>デバイスに不足しているCCプルダウン抵抗を本製品が担う代替抵抗を搭載。<br>
                 本製品を中継させれば上位機器に対しCCプルダウン抵抗がデバイスに存在すると認識させることができます。
-                </p>
+            </p>
         </div>
         <details>
             <summary>技術解説</summary>
@@ -127,16 +129,36 @@
         </details>
 
         <div id="warning" class="my-4">
-            <h3>使用時の注意</h3>
+            <h2>ccHackerの使い方</h2>
             <p> IN側(本体左側)に電源供給を行うUSBType-Cケーブルを、
                 <br>OUT側(本体右側)にUSBType-Cケーブルを経由して充電したいデバイスを接続してください。<br>
+                充電方向は裏面や表面の>マークで確認ができます。<br>
                 <img src="https://github.com/HSBL-ko-gyo/HSBL-100/assets/128065816/2f59e43e-4b97-49ab-85c7-7f84f17326c9"
-                    alt="HSBL-100使用方法" width="800">
+                    alt="HSBL-100使用方法" width="680"><br><br>
+                USBアダプタから本製品に対して給電が行われていれば、本体PowerLED(赤)が光ります。<br>
+                <img src="https://github.com/HSBL-ko-gyo/HSBL-100/assets/128065816/eeb649b5-b855-499f-bfed-ab83372a8d6c"
+                    alt="パワーLED" width="350"><br><br><br>
+                OUT側にCtoCケーブルを繋いでCCLED(黄色)の片方が点灯した場合、eMakerが搭載されているケーブルです。<br>
+                何も光らなかった場合はeMakerが存在しないケーブルです。<br>
+                どちらを接続しても問題ありません。<br>
+                <br>
+                充電デバイスと接続し、<br>eMakerが搭載されているケーブルの場合、空いていたCCLED(黄色)の点灯、(CCLED(黄色)が2つ点灯)
+                <br>eMakerが存在しないケーブルの場合、CCLED(黄色)のいずれかが(CCLED(黄色)が1つ点灯)点灯した場合、
+                <br>充電デバイスにCCプルダウン抵抗が存在することが確認できます。<br>
+                <img src="https://github.com/HSBL-ko-gyo/HSBL-100/assets/128065816/bfa3b725-e848-4442-96f3-724ab453d652"
+                    alt="CCLED" width="700"><br><br><br>
+                CCプルダウン抵抗が存在しているのにもかかわらず今まで充電が止まっていた場合、CCプルダウン抵抗以外の原因で充電が止まっている可能性があります。
+                (充電器の独自保護仕様など)<br>
+                本製品を経由していれば充電器はCCプルダウン抵抗が充電デバイスに有ると認識して振る舞います。<br>
+                56Kプルアップ抵抗が本製品に有るため、急速充電は行われません。<br><br>
 
-                <br>上位側を守る保護回路を搭載しているため、USBOUT側に電源供給を行うType-Cケーブルを接続した場合、本体PowerLED(赤)が光りません。
-                そのような場合は事故防止のためにすぐにType-Cケーブルを抜いてください。<br>
-                <br><strong>※本製品は特殊な製品仕様上、USBType-Cの規格から外れた製品になっています。<br>
-                    それを理解した上でご使用ください。初期不良対応以外の問題が発生した場合我々ハシビロ工業は責任を負いかねます。</strong>
+                <strong>どの充電機器でどういう結果が出たかを#ccHackerをつけてSNSで投稿していただけると大変励みになります！是非お願いします。</strong><br>
+                <br>
+            <h2>使用上の注意</h2>
+            <br>上位側を守る保護回路を搭載しているため、USBOUT側に電源供給を行うType-Cケーブルを接続した場合、本体PowerLED(赤)が光りません。
+            そのような場合は事故防止のためにすぐにType-Cケーブルを抜いてください。<br>
+            <br><strong>※本製品は特殊な製品仕様上、USBType-Cの規格から外れた製品になっています。<br>
+                それを理解した上でご使用ください。初期不良対応以外の問題が発生した場合我々ハシビロ工業は責任を負いかねます。</strong>
 
             </p><br>
         </div>
