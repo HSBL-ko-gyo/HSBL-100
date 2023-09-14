@@ -56,6 +56,29 @@
                 font-size: 1rem;
             }
         }
+
+        .responsive-iframe {
+            position: relative;
+            max-width: 800px;
+            max-height: 450px;
+            /* この値もアスベクト比に応じて調整 */
+            overflow: hidden;
+        }
+
+        .responsive-iframe::before {
+            content: "";
+            display: block;
+            padding-top: 56.25%;
+            /* 16:9 アスペクト比 */
+        }
+
+        .responsive-iframe iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -110,9 +133,11 @@
             <h2>製品概要</h2>
             <p> 本製品ccHackerは給電が止まることの多いType-Cデバイスの問題を解決する2つの機能を持っています。<br>
                 CtoCケーブルではなく、わざわざAtoCケーブルを使わないと充電できない！という悲劇を終わらせます。<br><br>
-		        <iframe width="560" height="315" src="https://www.youtube.com/embed/CPjRVH5kKs4?si=PbTQqzVSODot7yNd" 
-		        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-		        encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="responsive-iframe">
+                <iframe src=" https://www.youtube.com/embed/CPjRVH5kKs4?si=PbTQqzVSODot7yNd"
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+                 clipboard-write;encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
             </p>
         </div>
         <hr>
@@ -182,7 +207,7 @@
             <div class="faq-item my-3">
                 <p class="faq-question">本製品の定格電流は？</p>
                 <p>5V500mA程度でのご利用をおすすめします。<br>
-                理論上最大~3A程度の電流を流すことが可能ですが本体温度が大きく上昇すると思われます。</p>
+                    理論上最大~3A程度の電流を流すことが可能ですが本体温度が大きく上昇すると思われます。</p>
             </div>
             <div class="faq-item my-3">
                 <p class="faq-question">CC抵抗の詳細な抵抗値は本製品で測定出来ませんか？</p>
